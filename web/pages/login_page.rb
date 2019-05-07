@@ -1,6 +1,5 @@
 class LoginPage < Howitzer::Web::Page
   path '/users/sign_in'
-
   validate :title, /Demo web application - Login form\z/
 
   element :field_email, "#user_email"
@@ -13,10 +12,10 @@ class LoginPage < Howitzer::Web::Page
     flash_alert_element.visible?
   end
 
-  def log_user_in(user_login, user_password, remember_me = false)
-    field_email_element.set user_login
-    field_password_element.set user_password
-    checkbox_remember_me_element.click if remember_me
+  def log_user_in( login_hash )
+    field_email_element.set login_hash[:login]
+    field_password_element.set login_hash[:password]
+    checkbox_remember_me_element.click if login_hash[:remember]
 
     btn_submit_element.click
   end
