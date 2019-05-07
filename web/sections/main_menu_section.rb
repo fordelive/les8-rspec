@@ -1,5 +1,5 @@
 # This class is example of section
-class MenuSection < Howitzer::Web::Section
+class MainMenuSection < Howitzer::Web::Section
   me 'div.navigation__wrapper'
 
   element :log_in, :link, 'Login'
