@@ -2,8 +2,7 @@ require 'spec_helper'
 
 # TC 02, 03.1, 04.1-04.3, 05.1-05.3
 RSpec.feature 'User login' do
-  parameters = Array.new
-  parameters << { login: :correct,   password: :correct,   remember: :unchecked, state: :successful }
+  parameters = [{ login: :correct,   password: :correct,   remember: :unchecked, state: :successful }]
   parameters << { login: :correct,   password: :correct,   remember: :checked,   state: :successful }
   parameters << { login: :empty,     password: :correct,   remember: :unchecked, state: :failed     }
   parameters << { login: :correct,   password: :empty,     remember: :unchecked, state: :failed     }

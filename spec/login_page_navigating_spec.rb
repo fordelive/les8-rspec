@@ -7,7 +7,7 @@ RSpec.feature 'Login page navigating' do
       HomePage.open
       HomePage.on { main_menu_section.login }
 
-      expect LoginPage.displayed?
+      expect(LoginPage).to be_displayed
     end
   end
 end
