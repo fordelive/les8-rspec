@@ -12,14 +12,6 @@ RSpec.feature 'User login' do
   parameters << { login: :correct,   password: :incorrect, remember: :unchecked, state: :failed     }
   parameters << { login: :incorrect, password: :incorrect, remember: :unchecked, state: :failed     }
 
-  before do
-    # Do nothing
-  end
-
-  after do
-    # Do nothing
-  end
-
   parameters.each do |p|
     context 'when User logs in with correct credentials' do
       it 'he is logged in' do
