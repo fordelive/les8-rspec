@@ -65,3 +65,4 @@ end
 require 'capybara-screenshot/rspec'
 
 require_relative '../prerequisites/helpers'
+require_relative 'shared_examples'

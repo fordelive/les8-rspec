@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-# TC 03.2
 RSpec.feature 'Remember Me' do
+  # TC 03.2
   context 'when User is logged in with remember-me feature' do
     it 'User stays logged in when Home page is reopened' do
       login_hash = { login: resolve_login(:correct), password: resolve_password(:correct),
@@ -26,7 +26,7 @@ RSpec.feature 'Remember Me' do
     end
   end
 
-
+  # TC 03.3
   context 'when User is logged in with remember-me feature and logs out' do
     it 'User stays logged out when Home page is reopened' do
       login_hash = { login: resolve_login(:correct), password: resolve_password(:correct),

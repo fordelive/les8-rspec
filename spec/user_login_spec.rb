@@ -12,29 +12,6 @@ RSpec.feature 'User login' do
   parameters << { login: :incorrect, password: :incorrect, remember: :unchecked, state: :failed     }
 
   parameters.each do |p|
-    context 'when User logs in with correct credentials' do
-      it 'he is logged in' do
-        login_hash = { login: resolve_login(p[:login]), password: resolve_password(p[:password]), remember: 'checked'.match?( (p[:remember]).to_s ) }
-        LoginPage.open
-        LoginPage.on { log_user_in(login_hash) }
-
-        case p[:state]
-        when 'successful'
-          HomePage.on { expect(main_menu_section).to be_login_successful }
-        when 'failed'
-          LoginPage.on { is_expected.to be_login_failed }
-        end
-      end
-    end
+    include_examples 'User logs in', p
   end
-end
-
-def resolve_login(login)
-  possible_login = { 'correct': Howitzer.app_test_user, 'incorrect': 'blabla@mail.net', 'empty': ''}
-  possible_login[login.to_sym]
-end
-
-def resolve_password(password)
-  possible_password = { 'correct': Howitzer.app_test_pass, 'incorrect': '12345678', 'empty': ''}
-  possible_password[password.to_sym]
 end
